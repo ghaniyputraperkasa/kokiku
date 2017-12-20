@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Model\Admin\Auth;
+namespace App\Model\Admin;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Laratrust\Traits\LaratrustUserTrait;
 
-class UserAdmin extends Model
+class UserAdmin extends Authenticatable
 {
   use Notifiable;
   use LaratrustUserTrait;
@@ -15,7 +17,7 @@ class UserAdmin extends Model
    * @var array
    */
   protected $fillable = [
-      'name', 'email', 'password',
+      'name', 'email', 'password','phone','status'
   ];
 
   /**

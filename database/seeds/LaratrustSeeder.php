@@ -54,7 +54,7 @@ class LaratrustSeeder extends Seeder
             $this->command->info("Creating '{$key}' user");
 
             // Create default user for each role
-            $user = \App\Model\User::create([
+            $user = \App\Model\Admin\UserAdmin::create([
                 'name' => ucwords(str_replace('_', ' ', $key)),
                 'email' => $key.'@app.com',
                 'password' => bcrypt('password')
@@ -71,7 +71,7 @@ class LaratrustSeeder extends Seeder
                 foreach ($modules as $module => $value) {
 
                     // Create default user for each permission set
-                    $user = \App\Model\User::create([
+                    $user = \App\Model\Admin\UserAdmin::create([
                         'name' => ucwords(str_replace('_', ' ', $key)),
                         'email' => $key.'@app.com',
                         'password' => bcrypt('password'),
@@ -110,7 +110,7 @@ class LaratrustSeeder extends Seeder
         DB::table('permission_role')->truncate();
         DB::table('permission_user')->truncate();
         DB::table('role_user')->truncate();
-        \App\Model\User::truncate();
+        \App\Model\Admin\UserAdmin::truncate();
         \App\Model\Role::truncate();
         \App\Model\Permission::truncate();
         Schema::enableForeignKeyConstraints();

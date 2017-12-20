@@ -4,11 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    <FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
-      <IfModule mod_headers.c>
-          Header set Access-Control-Allow-Origin "http://kokiku.test"
-      </IfModule>
-    </FilesMatch>
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
@@ -18,7 +13,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
-    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt\.otf\.svg/\.woff2(\?\S*)?$/)$ [NC]
+    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

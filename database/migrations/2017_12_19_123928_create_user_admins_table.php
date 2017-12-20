@@ -18,8 +18,8 @@ class CreateUserAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone');
-            $table->boolean('status');
+            $table->string('phone')->default('-');
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

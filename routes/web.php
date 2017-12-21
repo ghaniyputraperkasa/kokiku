@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('koki.produk.index');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 //visitor
 Auth::routes();
@@ -30,4 +30,8 @@ Route::group(['namespace' => 'Admin'],function(){
 	// Admin Auth Routes
 	Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
 	Route::post('admin-login', 'Auth\LoginController@login');
+});
+
+Route::group(['namespace' => 'User'],function(){
+	
 });

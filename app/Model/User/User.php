@@ -25,4 +25,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function adresses(){
+      return $this->belongsToMany('App\Model\User\Address');
+    }
+
+    public function shop(){
+      return $this->belongsTo('App\Model\User\Shop');
+    }
+
+    public function accountNumbers(){
+      return $this->belongsToMany('App\Model\User\AccountNumber');
+    }
 }
